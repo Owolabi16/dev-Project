@@ -1,7 +1,7 @@
 # Dockerfile 
 
 # pull the base image
-FROM node:14.5.3-alpine
+FROM node:14.5-alpine
 
 # set working directory
 WORKDIR /app
