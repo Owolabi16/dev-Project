@@ -6,13 +6,13 @@ pipeline {
         steps {
           script {
             // login to docker hub
-            docker.withRegistry('https://registry.hub.docker.com', credentialsId: 'hub')
+            docker.withRegistry([credentialsId: 'hub', url: 'https://registry.hub.docker.com']) {
+              // build docker image
+              def customImage = docker.build("owolabialiu/jenkins", 'Docker/.')
 
-            // build docker image
-            def customImage = docker.build("owolabialiu/jenkins", 'Docker/.')
-
-            // push to docker hub
-            customImage.push()
+              // push to docker hub
+              customImage.push()
+            }
           }    
       }
     }
@@ -29,3 +29,6 @@ pipeline {
 }
 
 
+
+// Authenticate with Docker Hub using credentials
+                    docker.withRegistry([credentialsId: 'hub', url: 'https://registry.hub.docker.com']) {
