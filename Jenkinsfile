@@ -17,8 +17,8 @@ pipeline {
       stage ('Deploy to kubernetes cluster') {
         steps {
           script {
-              kubectl apply -f deployment.yaml
-              kubectl apply -f service.yaml
+            sh  'kubectl apply -f deployment.yaml'
+            sh  'kubectl apply -f service.yaml'
           }
         }
       }
