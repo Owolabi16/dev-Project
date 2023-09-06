@@ -5,6 +5,9 @@ pipeline {
       stage ('Build and push docker image') {
         steps {
           script {
+            // login to docker hub
+            docker.withRegistry('https://registry.hub.docker.com', credentialsId: 'hub')
+
             // build docker image
             def customImage = docker.build("owolabialiu/jenkins", 'Docker/.')
 
