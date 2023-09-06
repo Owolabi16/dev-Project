@@ -5,7 +5,7 @@ pipeline {
     steps {
         script {
             // build docker image
-            docker.build -t owolabialiu/jenkins /Docker/Dockerfile
+            docker.build -t owolabialiu/jenkins Docker/Dockerfile
 
             // push to docker hub
             docker.push owolabialiu/jenkins 
