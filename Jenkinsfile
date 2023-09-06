@@ -6,7 +6,7 @@ pipeline {
         steps {
           script {
             // login to docker hub
-            docker.withRegistry([credentialsId: 'hub', url: 'https://registry.hub.docker.com']) {
+            withDockerRegistry([credentialsId: 'hub', url: 'https://registry.hub.docker.com']) {
               // build docker image
               def customImage = docker.build("owolabialiu/jenkins", 'Docker/.')
 
@@ -20,8 +20,8 @@ pipeline {
       stage ('Deploy to kubernetes cluster') {
         steps {
           script {
-            sh  'kubectl apply -f deployment.yaml'
-            sh  'kubectl apply -f service.yaml'
+            sh  'kubectl apply -f Kubernetes/deployment.yaml'
+            sh  'kubectl apply -f Kubernetes/service.yaml'
           }
         }
       }
