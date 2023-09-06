@@ -5,10 +5,10 @@ pipeline {
     steps {
         script {
             // build docker image
-            docker build -t owolabialiu/jenkins
+            docker.build -t owolabialiu/jenkins Dockerfile
 
             // push to docker hub
-            docker push owolabialiu/jenkins
+            docker.push owolabialiu/jenkins 
         }
     }
   }
