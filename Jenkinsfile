@@ -5,11 +5,11 @@ pipeline {
     steps {
         script {
             // build docker image
-            docker.build -t owolabialiu/jenkins Docker/Dockerfile
+            def customImage = docker.build("owolabialiu/jenkins", 'Docker/.')
 
             // push to docker hub
-            docker.push owolabialiu/jenkins 
-        }
+            customImage.push()
+        }    
     }
   }
 
@@ -22,3 +22,6 @@ pipeline {
     }
   }
 }
+
+
+def customImage = docker.build("owolabialiu/jenkins:${env.BUILD_NUMBER}", 'Docker/Dockerfile')
