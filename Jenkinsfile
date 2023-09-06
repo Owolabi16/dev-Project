@@ -27,8 +27,3 @@ pipeline {
       }
   }
 }
-
-
-
-// Authenticate with Docker Hub using credentials
-                    docker.withRegistry([credentialsId: 'hub', url: 'https://registry.hub.docker.com']) {
