@@ -10,8 +10,8 @@ pipeline {
               // build docker image
               def customImage = docker.build("owolabialiu/jenkins", 'Docker/.')
 
-              // push to docker hub
-              customImage.push()
+            #  // push to docker hub
+            #  customImage.push()
             }
           }    
       }
