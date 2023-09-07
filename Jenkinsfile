@@ -6,7 +6,7 @@ pipeline {
         steps {
           script {
             // login to docker hub
-            withDockerRegistry([credentialsId: 'hub', url: 'https://registry.hub.docker.com']) {
+            withDockerRegistry([credentialsId: 'dockerhub', url: 'https://registry.hub.docker.com']) {
               // build docker image
               def customImage = docker.build("owolabialiu/jenkins", 'Docker/.')
             }
