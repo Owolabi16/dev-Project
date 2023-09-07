@@ -11,8 +11,8 @@ pipeline {
               def customImage = docker.build("owolabialiu/jenkins", 'Docker/.')
             }
           }    
+        }      
       }
-
       stage ('install kubectl') {
         steps {
           script {
@@ -23,8 +23,6 @@ pipeline {
           }
         }
       }
-
-
 
       stage ('Deploy to kubernetes cluster') {
         steps {
