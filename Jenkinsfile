@@ -13,7 +13,7 @@ pipeline {
           }    
         }      
       }
-  }
+  
       stage ('install kubectl') {
         steps {
           script {
@@ -36,4 +36,4 @@ pipeline {
         }
       }
   }
-
+}
