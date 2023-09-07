@@ -17,10 +17,10 @@ pipeline {
         steps {
           script {
             sh """
-              curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.27.4/2023-08-16/bin/linux/amd64/kubectl
-              chmod +x ./kubectl  
-              sudo mv ./kubectl /usr/local/bin/
-              kubectl version --client    
+              sudo rm /usr/local/bin/kubectl
+              curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+              chmod +x kubectl
+              sudo mv kubectl /usr/local/bin/
             """
           }
         }
@@ -35,4 +35,4 @@ pipeline {
         }
       }
   }
-}
+
