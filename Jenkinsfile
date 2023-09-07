@@ -13,7 +13,6 @@ pipeline {
           }    
         }      
       }
-  
       stage ('install kubectl') {
         steps {
           script {
@@ -26,7 +25,6 @@ pipeline {
           }
         }
       }
-
       stage ('Deploy to kubernetes cluster') {
         steps {
           script {
